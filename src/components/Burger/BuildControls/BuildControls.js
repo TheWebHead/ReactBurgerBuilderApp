@@ -1,4 +1,8 @@
 import React from 'react'
+import { v4 as uuidv4 } from 'uuid';
+
+import classes from '../BuildControls/BuildControls.module.css';
+import BuildControl from './BuildControl/BuildControl';
 
 const controls = [
     { label: 'Salad', type: 'salad' },
@@ -7,12 +11,19 @@ const controls = [
     { label: 'Meat', type: 'meat' }
 ];
 
-const BuildControls = ( props ) => {
-    return (
-        <div>
-            
+const BuildControls = ( props ) => (
+
+        <div className={classes.BuildControls}>
+           {controls.map(ctrl => (  
+               <BuildControl
+                key={ctrl.label}
+                label={ctrl.label}
+                added={() => props.ingredientAdded(ctrl.type)}
+                removed={() => props.ingredientRemoved(ctrl.type)}
+                disabled={props.disabled[ctrl.type]}
+                />
+           ))}
         </div>
-    )
-}
+)
 
 export default BuildControls;
