@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Order from '../Orders/Order';
+import Order from '../../components/Order/Order';
 import axios from '../../axios-orders';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
@@ -30,7 +30,6 @@ class Orders extends Component {
     render () {
         return (
             <div>
-            <h4 style={{textAlign:'center'}}>Your orders:</h4>
                 {this.state.orders.map(order => (
                     <Order 
                         key={order.id}

@@ -46,18 +46,11 @@ const input = ( props ) => {
                 value={props.value}
                 onChange={props.changed} />;
     }
-    let validationError = null;
-    
-    if (props.invalid && props.touched) {
-        validationError = <p>{props.errorMessage}</p>;
-        console.log(validationError);
-    }
 
     return (
         <div className={classes.Input}>
             <label className={classes.Label}>{props.label}</label>
             {inputElement}
-            {validationError}
         </div>
     );
 
